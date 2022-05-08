@@ -41,6 +41,7 @@
     "import/export": 2,
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "off"
   }
 }
