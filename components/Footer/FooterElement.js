@@ -2,15 +2,23 @@ import styled from 'styled-components'
 
 export const FooterCotainer = styled.footer`
   display: flex;
-  flex-direction: column;
-  width: 100%;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid black;
+  flex-direction: column;
   margin-top: 24px;
 `
-
 export const FooterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  padding-top: 24px;
+  border-top: 2px solid rgba(9, 9, 9, 0.1);
+`
+
+export const FooterWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10rem;
