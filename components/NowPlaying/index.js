@@ -1,22 +1,16 @@
-import { useEffect, useState } from 'react'
+import useSWR from 'swr'
 import { NowText, PlayContainer, SpotifyIcon } from './NowPlayElement'
+import { fetcher } from 'pages/api/fetcher'
 
 export function NowPlaying() {
-  const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(false)
+  const apiUrl = '/api/now_playing'
 
-  useEffect(() => {
-    setLoading(true)
-    fetch('api/now_playing')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setLoading(false)
-      })
-  }, [])
+  const { data, error } = useSWR(apiUrl, fetcher)
+  const isLoading = data === undefined
 
+  if (error) return <p>ERROR...</p>
   if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No data</p>
+  if (data.length <= 0) return <p>No data</p>
 
   return (
     <PlayContainer>
