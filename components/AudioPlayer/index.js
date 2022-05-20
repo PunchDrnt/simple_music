@@ -70,8 +70,11 @@ const PlayList = () => {
   }
 
   const Mute = () => {
-    ChangeVolume(0)
-    setIsVolume(0)
+    if (isVolume > 0) {
+      ChangeVolume(0)
+    } else {
+      ChangeVolume(1)
+    }
   }
 
   // check error
