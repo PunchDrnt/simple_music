@@ -3,9 +3,10 @@ import { TrackContainer, TrackWrapper } from './TopTracksElement'
 import Track from './Track'
 import { fetcher } from 'pages/api/fetcher'
 
+const apiUrl = '/api/top_track'
+
 const TopTracks = () => {
   // Fetch data from api
-  const apiUrl = '/api/top_track'
 
   const { data, error } = useSWR(apiUrl, fetcher)
   const isLoading = data === undefined

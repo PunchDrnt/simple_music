@@ -15,7 +15,7 @@ export const TrackWrapper = styled.div`
   align-items: center;
 `
 
-export const TracksCard = styled.a`
+export const TracksCard = styled.div`
   display: flex;
   border-radius: 10px;
   justify-content: flex-start;
