@@ -1,5 +1,6 @@
 import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 export const Nav = styled.nav`
   background-color: rgba(9, 9, 9, 0.7);
@@ -50,9 +51,14 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   margin: 24px;
-  cursor: pointer;
+`
 
-  &:hover {
-    color: red;
-  }
+export const NavLinks = styled(Link)`
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+  text-decoration: none;
 `

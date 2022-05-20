@@ -5,6 +5,7 @@ import {
   MobileIcon,
   NavMenu,
   NavItem,
+  NavLinks,
 } from '@components/Navbar/NavbarElements'
 import { FaBars } from 'react-icons/fa'
 
@@ -18,9 +19,13 @@ const Navbar = () => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>Home</NavItem>
-            <NavItem>About</NavItem>
-            <NavItem>Contact</NavItem>
+            <NavItem>
+              <NavLinks href="/">Home</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks href="/PlayList">Dashboard</NavLinks>
+            </NavItem>
+            <NavLinks>Contact</NavLinks>
           </NavMenu>
         </NavContainer>
       </Nav>
