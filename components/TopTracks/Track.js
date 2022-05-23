@@ -14,7 +14,7 @@ const Track = (track) => {
   const onTrackIndex = () => {
     router.push({
       pathname: '/PlayList',
-      query: { TrackIndex },
+      query: { TrackIndex: TrackIndex },
     })
   }
 

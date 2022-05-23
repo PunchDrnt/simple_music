@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { fetcher } from 'pages/api/fetcher'
 import AudioControls from './AudioControls'
 import {
@@ -21,7 +21,7 @@ const PlayList = () => {
   const router = useRouter()
 
   // State
-  const [isTrack, setIsTrack] = useState(+router.query.TrackIndex || 0)
+  const [isTrack, setIsTrack] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isVolume, setIsVolume] = useState(1)
 
@@ -36,10 +36,20 @@ const PlayList = () => {
   const title = data?.tracks[isTrack].title
   const artist = data?.tracks[isTrack].artist
 
+  useEffect(() => {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    })
+    setIsTrack(params.TrackIndex)
+    router.push({
+      query: { TrackIndex: params.TrackIndex },
+    })
+  }, [])
+
   // Play Prev and next tracks
   const toggleNextTrack = () => {
     if (isTrack < data?.tracks.length - 1) {
-      setIsTrack(isTrack + 1)
+      setIsTrack(+isTrack + 1)
     } else {
       setIsTrack(0)
     }
@@ -76,6 +86,11 @@ const PlayList = () => {
       ChangeVolume(1)
     }
   }
+  useEffect(() => {
+    router.push({
+      query: { TrackIndex: isTrack },
+    })
+  }, [isTrack])
 
   // check error
 
