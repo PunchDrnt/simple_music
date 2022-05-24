@@ -3,14 +3,17 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 export const Nav = styled.nav`
-  background-color: rgba(9, 9, 9, 0.7);
+  background-color: rgb(9, 9, 9);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  margin-bottom: 24px;
-  top: 0;
+  width: 100%;
+  height: 70px;
+
+  @media screen and (max-width: 768px) {
+    transition: 0.8s all ease;
+  }
 `
 export const NavContainer = styled.div`
   display: flex;

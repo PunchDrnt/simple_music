@@ -11,7 +11,7 @@ export const AudioBtn = styled.button`
   cursor: pointer;
   border: none;
   background: none;
-  margin: 15px;
+  padding: 5px 16px;
 
   &:hover {
     transform: scale(1.2);
@@ -20,21 +20,20 @@ export const AudioBtn = styled.button`
 `
 
 export const AudioContainer = styled.div`
-  position: fixed;
   display: flex;
+  position: fixed;
   bottom: 0;
-  background-color: rgba(9, 9, 9, 0.9);
+  background-color: rgb(9, 9, 9);
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
 `
 
 export const AudioWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 24px;
+  padding: 10px 24px;
 `
 
 export const AudioHContainer = styled.div`
