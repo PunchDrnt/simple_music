@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 export const Nav = styled.nav`
+  position: relative;
   background-color: rgb(9, 9, 9);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 70px;
 
   @media screen and (max-width: 768px) {
