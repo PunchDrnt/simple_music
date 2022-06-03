@@ -1,7 +1,6 @@
 import Navbar from '@components/Navbar'
 import Head from 'next/head'
 import Footer from '@components/Footer'
-import TopTracks from '@components/TopTracks'
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <TopTracks />
       <Footer />
     </>
   )
