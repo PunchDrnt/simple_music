@@ -1,6 +1,4 @@
-import useSWR from 'swr'
 import { useState, useRef, useEffect } from 'react'
-import { fetcher } from 'pages/api/fetcher'
 import AudioControls from './AudioControls'
 import {
   AudioArtist,
@@ -12,43 +10,46 @@ import {
   AudioImg,
 } from './AudioElements'
 import Volume from './VolumeControls'
-import { useRouter } from 'next/router'
 
-const apiUrl = '/api/top_track'
-
-const PlayList = () => {
-  // Router
-  const router = useRouter()
-
+const PlayList = ({ data, trackIndex }) => {
   // State
   const [isTrack, setIsTrack] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isVolume, setIsVolume] = useState(1)
-
   // Ref
   const audioPlayer = useRef()
 
-  // Fetcher
-  const { data, error } = useSWR(apiUrl, fetcher)
-
-  const previewUrl = data?.tracks[isTrack].previewUrl
-  const image = data?.tracks[isTrack].image
-  const title = data?.tracks[isTrack].title
-  const artist = data?.tracks[isTrack].artist
+  const previewUrl = data[isTrack].previewUrl
+  const image = data[isTrack].image
+  const title = data[isTrack].title
+  const artist = data[isTrack].artist
 
   useEffect(() => {
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    })
-    setIsTrack(params.TrackIndex)
-    router.push({
-      query: { TrackIndex: params.TrackIndex },
-    })
-  }, [])
+    setIsTrack(trackIndex)
+  }, [trackIndex])
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioPlayer.current.play()
+    }
+  }, [isTrack])
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioPlayer.current.play()
+    } else {
+      audioPlayer.current.pause()
+    }
+  }, [isPlaying])
+
+  // Play and Pause function
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying)
+  }
 
   // Play Prev and next tracks
   const toggleNextTrack = () => {
-    if (isTrack < data?.tracks.length - 1) {
+    if (isTrack < data.length - 1) {
       setIsTrack(+isTrack + 1)
     } else {
       setIsTrack(0)
@@ -57,19 +58,9 @@ const PlayList = () => {
 
   const togglePrevTrack = () => {
     if (isTrack - 1 < 0) {
-      setIsTrack(data?.tracks.length - 1)
+      setIsTrack(data.length - 1)
     } else {
       setIsTrack(isTrack - 1)
-    }
-  }
-
-  // Play and Pause function
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying)
-    if (!isPlaying) {
-      audioPlayer.current.play()
-    } else {
-      audioPlayer.current.pause()
     }
   }
 
@@ -86,19 +77,6 @@ const PlayList = () => {
       ChangeVolume(1)
     }
   }
-  useEffect(() => {
-    router.push({
-      query: { TrackIndex: isTrack },
-    })
-  }, [isTrack])
-
-  // check error
-
-  if (error) return <p>ERROR</p>
-  if (!data) return <p>Loding</p>
-
-  console.log('isTrack before return', isTrack)
-  console.log('data?.tracks before return', data?.tracks)
 
   return (
     <AudioContainer>

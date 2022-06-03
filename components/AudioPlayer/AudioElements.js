@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
+// Control
 export const ControlContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2rem;
 `
 
 export const AudioBtn = styled.button`
@@ -17,8 +19,13 @@ export const AudioBtn = styled.button`
     transform: scale(1.2);
     color: #fff;
   }
+
+  @media screen and (max-width: 768px) {
+    display: ${({ hide }) => (hide ? 'none' : 'flex')};
+  }
 `
 
+// index
 export const AudioContainer = styled.div`
   display: flex;
   position: fixed;
@@ -40,7 +47,8 @@ export const AudioHContainer = styled.div`
   color: #fff;
   display: flex;
   align-items: center;
-  width: 300px;
+  max-width: 400px;
+  width: 100%;
 `
 
 export const AudioImg = styled.img`
@@ -63,12 +71,18 @@ export const AudioArtist = styled.p`
   font-size: 12px;
 `
 
+// Volume
 export const VolumeContainer = styled.div`
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 300px;
+  max-width: 400px;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const VolumeSlider = styled.input`

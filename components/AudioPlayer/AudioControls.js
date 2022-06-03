@@ -9,13 +9,13 @@ const AudioControls = ({
 }) => {
   return (
     <ControlContainer>
-      <AudioBtn onClick={onPrevClick}>
+      <AudioBtn onClick={onPrevClick} hide>
         <FaBackward />
       </AudioBtn>
       <AudioBtn onClick={onPlayPauseClick}>
         {isPlaying ? <FaPause /> : <FaPlay />}
       </AudioBtn>
-      <AudioBtn onClick={onNextClick}>
+      <AudioBtn onClick={onNextClick} hide>
         <FaForward />
       </AudioBtn>
     </ControlContainer>
