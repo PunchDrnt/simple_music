@@ -5,7 +5,7 @@ export const ControlContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
+  margin: 0 2rem;
 `
 
 export const AudioBtn = styled.button`
