@@ -27,7 +27,5 @@ export default async (_, res) => {
       image: track.album.images[2].url,
     }))
 
-  console.log('data', tracks)
-
   return res.status(200).json({ tracks })
 }

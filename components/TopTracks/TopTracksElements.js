@@ -14,6 +14,7 @@ export const TrackContainer = styled.div`
 
 export const TrackWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -25,11 +26,6 @@ export const TrackWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
-
-export const TrackTitle = styled.h1`
-  font-size: 2rem;
-  text-decoration: none;
 `
 
 export const TrackSubtitle = styled.p`
@@ -44,12 +40,18 @@ export const TitleUnderLine = styled.div`
   margin: 5px;
 `
 
+export const TrackName = styled.h1`
+  font-size: 2rem;
+  padding: 5px;
+`
+
 // Track.js
 export const TracksCard = styled.div`
   display: flex;
   align-items: center;
   border-bottom: solid 1px rgba(9, 9, 9, 0.6);
-  width: 700px;
+  width: 100%;
+  max-width: 800px;
   margin-top: 10px;
   padding-bottom: 10px;
 
@@ -60,20 +62,20 @@ export const TracksCard = styled.div`
   }
 `
 
-export const TrackRank = styled.h2`
-  font-size: 14px;
-  padding: 16px;
-  text-align: center;
-`
-
 export const TrackDetail = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-export const TrackName = styled.p`
+export const TrackRank = styled.div`
   font-size: 16px;
-  padding: 5px;
+  padding: 16px;
+  text-align: center;
+`
+
+export const TrackTitle = styled.h1`
+  font-size: 1rem;
+  text-decoration: none;
 `
 
 export const TrackArtist = styled.p`

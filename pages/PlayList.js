@@ -1,1 +1,1 @@
-export { default } from '@components/AudioPlayer'
+export { default } from '@components/pages/PlayList'

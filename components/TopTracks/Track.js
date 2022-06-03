@@ -1,26 +1,34 @@
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import {
+  PlayIcon,
   TrackArtist,
   TrackDetail,
   TrackRank,
   TracksCard,
   TrackTitle,
-} from './TopTracksElement'
+} from './TopTracksElements'
 
 const Track = (track) => {
-  const router = useRouter()
-  const TrackIndex = track.ranking - 1
+  const [Hover, setIsHover] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
-  const onTrackIndex = () => {
-    router.push({
-      pathname: '/PlayList',
-      query: { TrackIndex: TrackIndex },
-    })
+  const onHover = () => {
+    setIsHover(!Hover)
+  }
+
+  const onActive = () => {
+    track.TrackIndex(track.ranking - 1)
+    setIsActive(!isActive)
   }
 
   return (
-    <TracksCard onClick={onTrackIndex}>
-      <TrackRank>{track.ranking}</TrackRank>
+    <TracksCard
+      id={track.ranking}
+      onMouseEnter={onHover}
+      onMouseLeave={onHover}
+      onClick={onActive}
+    >
+      <TrackRank>{Hover ? <PlayIcon /> : track.ranking}</TrackRank>
       <TrackDetail>
         <TrackTitle>{track.title}</TrackTitle>
         <TrackArtist>{track.artist}</TrackArtist>

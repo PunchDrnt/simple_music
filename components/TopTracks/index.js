@@ -1,25 +1,34 @@
-import useSWR from 'swr'
-import { TrackContainer, TrackWrapper } from './TopTracksElement'
+import {
+  TitleUnderLine,
+  TrackContainer,
+  TrackName,
+  TrackSubtitle,
+  TrackWrap,
+  TrackWrapper,
+} from './TopTracksElements'
 import Track from './Track'
-import { fetcher } from 'pages/api/fetcher'
 
-const apiUrl = '/api/top_track'
-
-const TopTracks = () => {
-  // Fetch data from api
-
-  const { data, error } = useSWR(apiUrl, fetcher)
-  const isLoading = data === undefined
-
-  if (error) return <p>ERROR...</p>
-  if (isLoading) return <p>Loading...</p>
-  if (data.length <= 0) return <p>No data</p>
-
+const TopTracks = ({ data, trackIndex, isPlaying }) => {
+  const Index = (value) => {
+    trackIndex(value)
+  }
   return (
     <TrackContainer>
       <TrackWrapper>
-        {data?.tracks.map((track, index) => (
-          <Track ranking={index + 1} key={track.songUrl} {...track} />
+        <TrackWrap>
+          <TrackName>Top Tracks </TrackName>
+          <TrackSubtitle>
+            Here&apos;s my top tracks on Spotify updated daily.
+          </TrackSubtitle>
+          <TitleUnderLine />
+        </TrackWrap>
+        {data.map((tracks, index) => (
+          <Track
+            ranking={index + 1}
+            key={tracks.songUrl}
+            TrackIndex={Index}
+            {...tracks}
+          />
         ))}
       </TrackWrapper>
     </TrackContainer>
