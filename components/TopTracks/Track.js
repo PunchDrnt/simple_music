@@ -10,7 +10,6 @@ import {
 
 const Track = (track) => {
   const [Hover, setIsHover] = useState(false)
-  const [isActive, setIsActive] = useState(false)
 
   const onHover = () => {
     setIsHover(!Hover)
@@ -18,7 +17,6 @@ const Track = (track) => {
 
   const onActive = () => {
     track.TrackIndex(track.ranking - 1)
-    setIsActive(!isActive)
   }
 
   return (

@@ -1,8 +1,18 @@
 import Navbar from '@components/Navbar'
 import Head from 'next/head'
 import Footer from '@components/Footer'
+import HeroSection from '@components/HeroSection'
+import { fetcher } from 'pages/api/fetcher'
+import LoadSection from '@components/Loading'
+import useSWR from 'swr'
+
+const apiUrl = '/api/now_playing'
 
 export default function Home() {
+  const { data, error } = useSWR(apiUrl, fetcher)
+
+  if (error) return <p>error</p>
+  if (!data) return <LoadSection />
   return (
     <>
       <Head>
@@ -12,7 +22,12 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <Footer />
+      <HeroSection />
+      <Footer
+        songUrl={data?.songUrl}
+        title={data?.title}
+        artist={data?.artist}
+      />
     </>
   )
 }

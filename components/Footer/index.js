@@ -1,10 +1,10 @@
 import { NowPlaying } from '@components/NowPlaying'
 import { FooterCotainer, FooterWrapper, FooterWrap } from './FooterElement'
-const Footer = () => {
+const Footer = ({ songUrl, artist, title }) => {
   return (
     <FooterCotainer>
       <FooterWrapper>
-        <NowPlaying />
+        <NowPlaying songUrl={songUrl} artist={artist} title={title} />
         <FooterWrap></FooterWrap>
       </FooterWrapper>
     </FooterCotainer>

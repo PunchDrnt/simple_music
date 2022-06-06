@@ -15,7 +15,7 @@ const PlayList = ({ data, trackIndex }) => {
   // State
   const [isTrack, setIsTrack] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isVolume, setIsVolume] = useState(1)
+  const [isVolume, setIsVolume] = useState(0.5)
   // Ref
   const audioPlayer = useRef()
 

@@ -5,7 +5,7 @@ export const PlayContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: flex-start;
+  color: #fff;
 `
 
 export const SpotifyIcon = styled(SiSpotify)`

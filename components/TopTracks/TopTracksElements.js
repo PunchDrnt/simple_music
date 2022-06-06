@@ -7,9 +7,10 @@ export const TrackContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem;
-  margin-bottom: 100px;
+  padding-top: 3rem;
   width: 100%;
+  background: #0f0e0f;
+  color: #fff;
 `
 
 export const TrackWrapper = styled.div`
@@ -19,6 +20,7 @@ export const TrackWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  margin-bottom: 100px;
 `
 
 export const TrackWrap = styled.div`
@@ -34,7 +36,7 @@ export const TrackSubtitle = styled.p`
 `
 
 export const TitleUnderLine = styled.div`
-  background: rgba(9, 9, 9, 0.7);
+  background: #ff00f7;
   height: 1px;
   width: 150px;
   margin: 5px;
@@ -49,7 +51,7 @@ export const TrackName = styled.h1`
 export const TracksCard = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: solid 1px rgba(9, 9, 9, 0.6);
+  border-bottom: solid 1px #ff00f7;
   width: 100%;
   max-width: 800px;
   margin-top: 10px;
@@ -86,4 +88,5 @@ export const TrackArtist = styled.p`
 export const PlayIcon = styled(FaPlay)`
   font-size: 14px;
   text-align: center;
+  color: #ff00f7;
 `
