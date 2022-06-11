@@ -7,8 +7,7 @@ export const TrackContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 3rem;
-  width: 100%;
+  padding: 48px 0 100px 0;
   background: #0f0e0f;
   color: #fff;
 `
@@ -20,7 +19,6 @@ export const TrackWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 100px;
 `
 
 export const TrackWrap = styled.div`

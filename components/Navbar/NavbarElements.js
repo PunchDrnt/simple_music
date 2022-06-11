@@ -3,13 +3,12 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 export const Nav = styled.nav`
-  position: relative;
-  background-color: rgb(9, 9, 9);
+  background: #000;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 80px;
 
   @media screen and (max-width: 768px) {
     transition: 0.8s all ease;
@@ -21,12 +20,12 @@ export const NavContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  margin: 0 24px 0 24px;
 `
 
 export const NavLogo = styled.p`
   justify-self: flex-start;
   text-align: center;
-  margin-left: 24px;
   font-family: 'Oleo Script', cursive;
   font-size: 2rem;
 `
@@ -44,7 +43,6 @@ export const MobileIcon = styled(FaBars)`
 
 export const NavMenu = styled.ul`
   display: flex;
-  margin-right: 24px;
   list-style: none;
 
   @media screen and (max-width: 768px) {
@@ -57,7 +55,6 @@ export const NavItem = styled.li`
 `
 
 export const NavLinks = styled(Link)`
-  color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;

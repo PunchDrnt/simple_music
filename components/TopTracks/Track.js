@@ -9,10 +9,10 @@ import {
 } from './TopTracksElements'
 
 const Track = (track) => {
-  const [Hover, setIsHover] = useState(false)
+  const [isHover, setIsHover] = useState(false)
 
   const onHover = () => {
-    setIsHover(!Hover)
+    setIsHover(!isHover)
   }
 
   const onActive = () => {
@@ -26,7 +26,7 @@ const Track = (track) => {
       onMouseLeave={onHover}
       onClick={onActive}
     >
-      <TrackRank>{Hover ? <PlayIcon /> : track.ranking}</TrackRank>
+      <TrackRank>{isHover ? <PlayIcon /> : track.ranking}</TrackRank>
       <TrackDetail>
         <TrackTitle>{track.title}</TrackTitle>
         <TrackArtist>{track.artist}</TrackArtist>

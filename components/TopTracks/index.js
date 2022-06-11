@@ -8,10 +8,11 @@ import {
 } from './TopTracksElements'
 import Track from './Track'
 
-const TopTracks = ({ data, trackIndex, isPlaying }) => {
+const TopTracks = ({ data, trackIndex }) => {
   const Index = (value) => {
     trackIndex(value)
   }
+
   return (
     <TrackContainer>
       <TrackWrapper>

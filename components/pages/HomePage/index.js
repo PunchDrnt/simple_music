@@ -1,10 +1,10 @@
-import Navbar from '@components/Navbar'
 import Head from 'next/head'
-import Footer from '@components/Footer'
-import HeroSection from '@components/HeroSection'
 import { fetcher } from 'pages/api/fetcher'
 import LoadSection from '@components/Loading'
 import useSWR from 'swr'
+import Layout from '@components/layout'
+import HeroSection from '@components/HeroSection'
+import Footer from '@components/Footer'
 
 const apiUrl = '/api/now_playing'
 
@@ -21,7 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      <Layout />
       <HeroSection />
       <Footer
         songUrl={data?.songUrl}

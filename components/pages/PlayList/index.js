@@ -1,9 +1,10 @@
 import useSWR from 'swr'
 import TopTracks from '@components/TopTracks'
 import AudioPlayer from '@components/AudioPlayer'
-import Navbar from '@components/Navbar'
 import { fetcher } from 'pages/api/fetcher'
 import { useState } from 'react'
+import LoadSection from '@components/Loading'
+import Layout from '@components/layout'
 
 const apiUrl = '/api/top_track'
 
@@ -16,10 +17,11 @@ const PlayList = () => {
   }
 
   if (error) return <p>error</p>
-  if (!data) return <p>...Loding</p>
+  if (!data) return <LoadSection />
+
   return (
     <>
-      <Navbar />
+      <Layout />
       <TopTracks data={data?.tracks} trackIndex={trackIndex} />
       <AudioPlayer data={data?.tracks} trackIndex={isIndex} />
     </>
