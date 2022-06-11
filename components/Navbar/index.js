@@ -7,17 +7,14 @@ import {
   NavItem,
   NavLinks,
 } from '@components/Navbar/NavbarElements'
-import { FaBars } from 'react-icons/fa'
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
         <NavContainer>
           <NavLogo>Music</NavLogo>
-          <MobileIcon>
-            <FaBars />
-          </MobileIcon>
+          <MobileIcon onClick={toggle} />
           <NavMenu>
             <NavItem>
               <NavLinks href="/">Home</NavLinks>

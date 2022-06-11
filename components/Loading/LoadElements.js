@@ -38,7 +38,7 @@ export const Circle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #00ff0a;
+    color: #ff00f7;
     font-size: 1.5rem;
   }
 `
@@ -58,10 +58,10 @@ export const Ball = styled.span`
     left: 0;
     width: 15px;
     height: 15px;
-    background: #00ff0a;
+    background: #ff00f7;
     border-radius: 50%;
-    box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a,
-      0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+    box-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7, 0 0 40px #ff00f7,
+      0 0 60px #ff00f7, 0 0 80px #ff00f7, 0 0 100px #ff00f7;
     animation: ${animate} 1s linear infinite;
     animation-delay: ${(props) => props.Var * 0.05}s;
   }
