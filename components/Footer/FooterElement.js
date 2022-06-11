@@ -5,7 +5,8 @@ export const FooterCotainer = styled.footer`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 24px;
+  height: 80px;
+  margin-top: -85px;
 `
 export const FooterWrapper = styled.div`
   display: flex;
@@ -13,9 +14,9 @@ export const FooterWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 1000px;
-  padding-top: 24px;
-  border-top: 2px solid rgba(9, 9, 9, 0.1);
+  max-width: 1200px;
+  padding: 14px;
+  border-top: 3px solid rgba(255, 255, 255, 0.7);
 `
 
 export const FooterWrap = styled.div`
