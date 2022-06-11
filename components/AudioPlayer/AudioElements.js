@@ -30,7 +30,7 @@ export const AudioContainer = styled.div`
   display: flex;
   position: fixed;
   bottom: 0;
-  background-color: rgb(9, 9, 9);
+  background: rgb(9, 9, 9);
   justify-content: center;
   align-items: center;
   width: 100%;

@@ -16,19 +16,21 @@ const PlayList = ({ data, trackIndex }) => {
   const [isTrack, setIsTrack] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isVolume, setIsVolume] = useState(0.5)
-  // Ref
-  const audioPlayer = useRef()
 
   const previewUrl = data[isTrack].previewUrl
   const image = data[isTrack].image
   const title = data[isTrack].title
   const artist = data[isTrack].artist
 
+  // Ref
+  const audioPlayer = useRef()
+
   useEffect(() => {
     setIsTrack(trackIndex)
   }, [trackIndex])
 
   useEffect(() => {
+    audioPlayer.current.pause()
     if (isPlaying) {
       audioPlayer.current.play()
     }
@@ -74,7 +76,7 @@ const PlayList = ({ data, trackIndex }) => {
     if (isVolume > 0) {
       ChangeVolume(0)
     } else {
-      ChangeVolume(1)
+      ChangeVolume(0.5)
     }
   }
 
