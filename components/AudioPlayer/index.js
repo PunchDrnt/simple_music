@@ -17,10 +17,7 @@ const PlayList = ({ data, trackIndex }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isVolume, setIsVolume] = useState(0.5)
 
-  const previewUrl = data[isTrack].previewUrl
-  const image = data[isTrack].image
-  const title = data[isTrack].title
-  const artist = data[isTrack].artist
+  const { previewUrl, image, title, artist } = data[isTrack]
 
   // Ref
   const audioPlayer = useRef()

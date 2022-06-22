@@ -6,8 +6,8 @@ const animateBg = keyframes`
 `
 
 const animate = keyframes`
-0%{transform:scale(1)}
-80%,100%{transform:scale(0)}
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
 `
 
 export const LoadContainer = styled.section`
@@ -29,8 +29,30 @@ export const LoadWrapper = styled.div`
 
 export const Circle = styled.div`
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+`
+
+export const CircleOuter = styled.div`
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #000;
+  overflow: hidden;
+  border-radius: 50%;
+  animation: ${animate} 2s linear infinite;
+`
+
+export const CircleInner = styled.div`
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   &::before {
     content: 'Loading...';
@@ -38,31 +60,17 @@ export const Circle = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff00f7;
+    color: green;
     font-size: 1.5rem;
   }
 `
 
-export const Ball = styled.span`
+export const Box = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: rotate(${(props) => props.Var * 18}deg);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    background: #ff00f7;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7, 0 0 40px #ff00f7,
-      0 0 60px #ff00f7, 0 0 80px #ff00f7, 0 0 100px #ff00f7;
-    animation: ${animate} 1s linear infinite;
-    animation-delay: ${(props) => props.Var * 0.05}s;
-  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 200px;
+  background: linear-gradient(to top, red, blue);
 `

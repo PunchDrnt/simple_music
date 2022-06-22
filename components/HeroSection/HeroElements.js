@@ -18,7 +18,7 @@ export const HeroWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
 `
 
