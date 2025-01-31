@@ -5,6 +5,11 @@ import { fetcher } from 'pages/api/fetcher'
 import { useState } from 'react'
 import LoadSection from '@components/Loading'
 import Layout from '@components/layout'
+import {
+  TrackContainer,
+  TrackWrap,
+  TrackWrapper,
+} from '../../TopTracks/TopTracksElements.js'
 
 const apiUrl = '/api/top_track'
 
@@ -18,6 +23,21 @@ const PlayList = () => {
 
   if (error) return <p>error</p>
   if (!data) return <LoadSection />
+
+  if (data?.tracks.length === 0) {
+    return (
+      <>
+        <Layout />
+        <TrackContainer>
+          <TrackWrap>
+            <TrackWrapper>
+              <div>No Track avaliable</div>
+            </TrackWrapper>
+          </TrackWrap>
+        </TrackContainer>
+      </>
+    )
+  }
 
   return (
     <>

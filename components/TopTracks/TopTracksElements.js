@@ -7,6 +7,7 @@ export const TrackContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: calc(100vh - 80px);
   padding: 48px 0 100px 0;
   background: #0f0e0f;
   color: #fff;

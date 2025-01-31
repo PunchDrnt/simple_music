@@ -17,8 +17,8 @@ export default async (_, res) => {
   const { items } = await response.json()
 
   const tracks = items
-    ?.filter((track) => track.preview_url !== null)
-    .slice(0, 10)
+    // ?.filter((track) => track.preview_url !== null)
+    ?.slice(0, 10)
     .map((track) => ({
       artist: track.artists.map((_artist) => _artist.name).join(', '),
       songUrl: track.external_urls.spotify,
